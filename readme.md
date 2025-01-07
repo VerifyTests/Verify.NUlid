@@ -118,8 +118,3 @@ Result:
 ```
 <sup><a href='/src/Tests/Samples.DontScrubInstance.verified.txt#L1-L5' title='Snippet source file'>snippet source</a> | <a href='#snippet-Samples.DontScrubInstance.verified.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
-
-
-## Icon
-
-[Pattern](https://thenounproject.com/icon/pattern-7353536/) designed by [Mohamed Salah Hajji](https://thenounproject.com/creator/hajjisaleh.mohamed24/) from [The Noun Project](https://thenounproject.com).
