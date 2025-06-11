@@ -10,6 +10,11 @@ Extends [Verify](https://github.com/VerifyTests/Verify) to enable scrubbing of U
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
 
+## Sponsors
+
+include: zzz
+
+
 ## NuGet package
 
 https://nuget.org/packages/Verify.NUlid/
