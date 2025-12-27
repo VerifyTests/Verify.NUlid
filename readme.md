@@ -1,7 +1,7 @@
 # <img src="/src/icon.png" height="30px"> Verify.NUlid
 
 [![Discussions](https://img.shields.io/badge/Verify-Discussions-yellow?svg=true&label=)](https://github.com/orgs/VerifyTests/discussions)
-[![Build status](https://ci.appveyor.com/api/projects/status/qv02ovfsvogyqrer?svg=true)](https://ci.appveyor.com/project/SimonCropp/Verify-NUlid)
+[![Build status](https://img.shields.io/appveyor/build/SimonCropp/Verify-NUlid)](https://ci.appveyor.com/project/SimonCropp/Verify-NUlid)
 [![NuGet Status](https://img.shields.io/nuget/v/Verify.NUlid.svg)](https://www.nuget.org/packages/Verify.NUlid/)
 
 Extends [Verify](https://github.com/VerifyTests/Verify) to enable scrubbing of Universally Unique Lexicographically Sortable Identifiers via the [NUlid](https://github.com/RobThree/NUlid) package.
