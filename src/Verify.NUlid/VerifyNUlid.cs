@@ -16,66 +16,38 @@ public static class VerifyNUlid
         InnerVerifier.ThrowIfVerifyHasBeenRun();
 
         CounterContext.Init();
-        VerifierSettings.AddScrubber(ScrubInline);
+        VerifierSettings.ScrubWindow(ulidLength, ulidLength, ScrubInline, requireWordBoundary: true);
         VerifierSettings
             .AddExtraSettings(_ =>
                 _.Converters.Add(new UlidConverter()));
     }
 
-    static void ScrubInline(StringBuilder builder, Counter counter, IReadOnlyDictionary<string, object> context)
+    const int ulidLength = 26;
+
+    // The engine supplies each 26 char window that sits on a word boundary, so only the
+    // content check remains here.
+    static string? ScrubInline(ReadOnlySpan<char> window, Counter counter, IReadOnlyDictionary<string, object> context)
     {
         if (!context.ScrubUlids())
         {
-            return;
+            return null;
         }
 
-        const int ulidLength = 26;
-        var builderIndex = 0;
-        var index = 0;
-
-        while (true)
+        foreach (var ch in window)
         {
-            if (index > builder.Length - ulidLength)
+            if (!char.IsLetterOrDigit(ch))
             {
-                break;
+                return null;
             }
-
-            var nextIndex = index + ulidLength;
-            if (nextIndex < builder.Length )
-            {
-                var nextChar = builder[nextIndex];
-                if (char.IsLetterOrDigit(nextChar))
-                {
-                    index++;
-                    builderIndex++;
-                    continue;
-                }
-            }
-
-            if (index > 0)
-            {
-                if (char.IsLetterOrDigit(builder[index - 1]))
-                {
-                    index++;
-                    builderIndex++;
-                    continue;
-                }
-            }
-
-            var slice = builder.ToString(index, ulidLength);
-            if (slice.Any(_ => !char.IsLetterOrDigit(_)) ||
-                !Ulid.TryParse(slice, out var ulid))
-            {
-                index++;
-                builderIndex++;
-                continue;
-            }
-
-            var next = CounterContext.Current.Next(ulid);
-            builder.Overwrite($"Ulid_{next}", builderIndex, ulidLength);
-            builderIndex += ulidLength;
-            index += ulidLength;
         }
+
+        if (!Ulid.TryParse(window.ToString(), out var ulid))
+        {
+            return null;
+        }
+
+        var next = CounterContext.Current.Next(ulid);
+        return $"Ulid_{next}";
     }
 
     public static void DontScrubUlids(this VerifySettings settings) =>
@@ -95,11 +67,5 @@ public static class VerifyNUlid
         }
 
         return true;
-    }
-
-    static void Overwrite(this StringBuilder builder, string value, int index, int length)
-    {
-        builder.Remove(index, length);
-        builder.Insert(index, value);
     }
 }
