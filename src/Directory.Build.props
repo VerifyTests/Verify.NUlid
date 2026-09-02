@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
-    <NoWarn>CS1591;CS0649</NoWarn>
+    <NoWarn>CS1591;CS0649;SC023</NoWarn>
     <Version>1.0.1</Version>
     <SignAssembly>false</SignAssembly>
     <AssemblyVersion>1.0.0</AssemblyVersion>
@@ -12,5 +12,6 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    <Verify_SponsorshipLicenseIgnored>true</Verify_SponsorshipLicenseIgnored>
   </PropertyGroup>
 </Project>
