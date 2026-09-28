@@ -62,7 +62,7 @@ public Task UlidScrubbing()
     return Verify(target);
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L93-L108' title='Snippet source file'>snippet source</a> | <a href='#snippet-Nested' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L92-L107' title='Snippet source file'>snippet source</a> | <a href='#snippet-Nested' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Result:
@@ -116,7 +116,7 @@ public Task DontScrubInstance()
     return Verify(target, settings);
 }
 ```
-<sup><a href='/src/Tests/Samples.cs#L60-L91' title='Snippet source file'>snippet source</a> | <a href='#snippet-DontScrub' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Samples.cs#L59-L90' title='Snippet source file'>snippet source</a> | <a href='#snippet-DontScrub' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Result: 

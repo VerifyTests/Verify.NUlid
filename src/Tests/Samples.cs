@@ -1,5 +1,4 @@
-﻿[TestFixture]
-public class Samples
+﻿public class Samples
 {
     [Test]
     public Task Typed()
