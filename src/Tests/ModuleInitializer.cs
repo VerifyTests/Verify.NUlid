@@ -9,8 +9,6 @@
     #endregion
 
     [ModuleInitializer]
-    public static void InitOther()
-    {
+    public static void InitOther() =>
         VerifierSettings.InitializePlugins();
-    }
 }
