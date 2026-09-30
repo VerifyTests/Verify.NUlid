@@ -11,7 +11,6 @@
     [ModuleInitializer]
     public static void InitOther()
     {
-        VerifyDiffPlex.Initialize(OutputType.Compact);
         VerifierSettings.InitializePlugins();
     }
 }
